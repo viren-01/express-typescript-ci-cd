@@ -16,6 +16,6 @@ app.use(cors());
 
 app.listen(port, host, () =>{
     logging.info(NAMESPACE, `Server running on ${host}: ${port}`);
-    connect();
+    //connect();
     userRouter(app);
 })
