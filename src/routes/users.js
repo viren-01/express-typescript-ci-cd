@@ -51,5 +51,18 @@ function default_1(app) {
             return [2 /*return*/];
         });
     }); });
+    app.get('/', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        var msg;
+        return __generator(this, function (_a) {
+            try {
+                msg = "WELCOME TO ABC PROJECT";
+                res.status(200).send(msg);
+            }
+            catch (error) {
+                res.send(404);
+            }
+            return [2 /*return*/];
+        });
+    }); });
 }
 exports["default"] = default_1;

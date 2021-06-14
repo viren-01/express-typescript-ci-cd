@@ -9,6 +9,14 @@ export default function (app:Express){
             res.send(404);
         }
     })
+    app.get('/', async (req, res) => {
+        try {
+            let msg = "WELCOME TO ABC PROJECT"
+            res.status(200).send(msg);
+        } catch (error) {
+            res.send(404);
+        }
+    })
 }
 
 

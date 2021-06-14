@@ -14,6 +14,6 @@ app.use(express_1.json());
 app.use(cors_1());
 app.listen(port, host, function () {
     logging_1["default"].info(NAMESPACE, "Server running on " + host + ": " + port);
-    //connect_1();
+    //connect_1.connect();
     users_1["default"](app);
 });
