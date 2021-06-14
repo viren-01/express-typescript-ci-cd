@@ -7,7 +7,7 @@ var logging_1 = require("./logger/logging");
 var connect_1 = require("./db/connect");
 var users_1 = require("./routes/users");
 var NAMESPACE = 'Server';
-var port = config_1["default"].port;
+var port = process.env.port || 3000;
 var host = config_1["default"].host;
 var app = express_1();
 app.use(express_1.json());

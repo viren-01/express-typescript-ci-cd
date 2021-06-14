@@ -6,7 +6,7 @@ import { connect } from './db/connect';
 import userRouter from './routes/users'
 
 const NAMESPACE = 'Server';
-const port = config.port as number;
+const port = process.env.port as number || 3000 as number ;
 const host = config.host as string;
 
 const app = express();
