@@ -15,7 +15,17 @@ const home = async (req: Request, res: Response) => {
         sendResponse({ err: true, responseCode: 500, msg: '', err_stack: error.stack }, res)
     }
 }
+const tobeDeleted = async (req: Request, res: Response) => {
+    try {
+        let resObject = { err: false, responseCode: 200, msg: "WELCOME" }
+        sendResponse(resObject, res);
+    } catch (error) {
+        console.log(error)
+        sendResponse({ err: true, responseCode: 500, msg: '', err_stack: error.stack }, res)
+    }
+}
 
 export{
-    home
+    home,
+    tobeDeleted
 }
