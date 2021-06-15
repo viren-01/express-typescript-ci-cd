@@ -1,0 +1,10 @@
+GET http://localhost:3000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJBQkMiLCJlbWFpbCI6IlhZUFoifSwiaWF0IjoxNjIzNzUwOTk3LCJleHAiOjE2MjM3NTE1OTd9.Y5lrZtS20CijD2eg7FwFLj6iHPwpLu4NiDOeV3Qvos4
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "name": "ABC",
+    "email": "XYPZ"
+}

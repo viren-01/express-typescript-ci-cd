@@ -1,22 +1,13 @@
-import {Express, Request, Response} from 'express';
+import express from 'express';
+import * as userController from '../controllers/users';
+import auth from '../middlewares/auth';
 
-export default function (app:Express){
-    app.get('/api/users', async (req, res) => {
-        try {
-            let users = ["ARUNIMA, AKA, WRAITH"];
-            res.status(200).send(users);
-        } catch (error) {
-            res.send(404);
-        }
-    })
-    app.get('/', async (req, res) => {
-        try {
-            let msg = "WELCOME TO ABC PROJECT"
-            res.status(200).send(msg);
-        } catch (error) {
-            res.send(404);
-        }
-    })
-}
+const router = express.Router();
+
+router.get('/api/users',auth.authenticateToken, userController.getUsers)
+
+export = router;
+
+
 
 

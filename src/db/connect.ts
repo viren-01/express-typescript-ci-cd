@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import config from '../../config/config';
 import logger from '../logger/logging';
 
-export async function connect() {
+const connect = async() => {
     const dbUri = config.dbUri as string;
     try {
         await mongoose
@@ -10,9 +10,13 @@ export async function connect() {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             });
-        logger.info(`Server`, `Database Connection Established`);
+        logger.info(`DB`, `Database Connection Established`);
     } catch (err) {
-        logger.error(`Server`, `Connection Failed`, err);
+        logger.error(`DB`, `Connection Failed`, err);
         process.exit(1);
     }
+}
+
+export {
+    connect
 }
