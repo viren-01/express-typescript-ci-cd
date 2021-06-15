@@ -8,6 +8,3 @@ router.post('/login', indexController.home)
 export = router;
 
 
-
-
-
