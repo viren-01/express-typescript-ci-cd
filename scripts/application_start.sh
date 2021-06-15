@@ -15,4 +15,5 @@ export NVM_DIR="$HOME/.nvm"
 npm install --ignore-scripts
 
 #start our node app in the background
+npm run build
 node dist/src/app.js > app.out.log 2> app.err.log < /dev/null & 

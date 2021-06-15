@@ -24,5 +24,5 @@ app.use(indexRouter);
 
 app.listen(3000, () =>{
     logging.info(NAMESPACE, `Server running on 3000`);
-    connect();
+    //connect();
 })
