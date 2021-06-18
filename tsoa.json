@@ -1,0 +1,15 @@
+{
+    "entryFile": "./src/app.ts",
+    "swagger": {
+        "outputDirectory": "."
+    },
+    "routes": {
+        "basePath" : "/",
+        "routesDir": "./src/routes"
+    },
+    "spec": {
+        "basePath" : "/",
+        "description": "",
+        "outputDirectory": "."
+    }
+}

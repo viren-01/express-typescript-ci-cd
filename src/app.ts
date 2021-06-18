@@ -1,28 +1,30 @@
 import express from 'express';
 import cors from 'cors';
 import config from '../config/config';
-import logging from './logger/logging';
-import {connect} from './db/connect';
-import userRouter from './routes/users';
-import indexRouter from './routes/index';
+import logger from './logger/logging';
+import { connect } from './db/connect';
+import swaggerUI from 'swagger-ui-express';
+import swaggerDoc from '../swagger.json';
+import './controllers/index';
+import { RegisterRoutes } from './routes/routes'
 
-const NAMESPACE = 'Server';
-const port: any = process.env.port || config.port ;
-const host = config.host as string;
+try {
+    const NAMESPACE = 'Server';
+    const port: any = process.env.port || config.port;
+    const host = config.host as string;
 
-const app = express();
+    const app = express();
 
-app.use(express.json());
-app.use(cors());
-app.use(userRouter);
-app.use(indexRouter);
+    app.use(express.json());
+    app.use(cors());
+    RegisterRoutes(app);
+    // serve swagger
+    app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
-// app.listen(port, host, () =>{
-//     logging.info(NAMESPACE, `Server running on ${host}: ${port}`);
-//     connect();
-// })
-
-app.listen(3000, () =>{
-    logging.info(NAMESPACE, `Server running on 3000`);
-    //connect();
-})
+    app.listen(3000, () => {
+        logger.info(NAMESPACE, `Server running on 3000`);
+        //connect();
+    })
+} catch (error) {
+    console.log(`Server terminated: ${error}`);
+}

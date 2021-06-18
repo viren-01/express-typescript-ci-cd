@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { sendResponse } from "../helpers/response_handler";
+import { responseHandler } from "../helpers/response_handler";
 import { verifyToken } from '../helpers/jwt';
 
 const authenticateToken = (req: any, res: Response, next: NextFunction) => {
@@ -11,20 +11,20 @@ const authenticateToken = (req: any, res: Response, next: NextFunction) => {
 
     if (!authHeader) {
         responseObj.msg = "Authorization header is missing";
-        return sendResponse(responseObj, res);
+        return responseHandler.sendResponse(responseObj);
     }
 
     const token = authHeader?.split(" ")[1];
     if (token == null) {
         responseObj.msg = "Authorization token is missing"
-        return sendResponse(responseObj, res);
+        return responseHandler.sendResponse(responseObj);
     }
     else {
         try {
             const data: any = verifyToken(token);
             if (!data) {
                 responseObj.msg = "Authorization token is invalid";
-                return sendResponse(responseObj, res);
+                return responseHandler.sendResponse(responseObj);
             } else {
                 req.user = data;
                 req.headers["name"] = data.data.name;
@@ -34,7 +34,7 @@ const authenticateToken = (req: any, res: Response, next: NextFunction) => {
         } catch (err) {
             responseObj.msg =
                 err.error.message || "Authorization token verfication failed";
-            return sendResponse(responseObj, res);
+            return responseHandler.sendResponse(responseObj);
         }
     }
 }

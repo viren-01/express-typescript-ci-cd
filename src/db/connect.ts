@@ -6,9 +6,10 @@ const connect = async() => {
     const dbUri = config.dbUri as string;
     try {
         await mongoose
-            .connect(dbUri, {
+            .connect(dbUri,{
                 useNewUrlParser: true,
-                useUnifiedTopology: true
+                useUnifiedTopology: true,
+                useFindAndModify: false
             });
         logger.info(`DB`, `Database Connection Established`);
     } catch (err) {
