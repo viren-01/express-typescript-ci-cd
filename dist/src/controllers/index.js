@@ -18,7 +18,7 @@ const fs_1 = __importDefault(require("fs"));
 class IndexController {
     home(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
+            const path = ("../index.html");
             res.sendFile(path);
         });
     }

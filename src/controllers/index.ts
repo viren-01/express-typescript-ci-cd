@@ -6,7 +6,7 @@ import fs from 'fs'
 export class IndexController {
 
     public async home(req: Request, res: Response) {
-        const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html")
+        const path = ("../index.html")
         res.sendFile(path);
     }
 
