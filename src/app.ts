@@ -6,7 +6,7 @@ import { connect } from './db/connect';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDoc from '../swagger.json';
 import './controllers/index';
-import { RegisterRoutes } from './routes/routes'
+import indexRouter from './routes/index';
 
 try {
     const NAMESPACE = 'Server';
@@ -17,7 +17,10 @@ try {
 
     app.use(express.json());
     app.use(cors());
-    RegisterRoutes(app);
+
+    /* Routes */
+    app.use(indexRouter);
+
     // serve swagger
     app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
