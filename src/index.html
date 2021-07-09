@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      body {
-        margin: 40px auto;
-        max-width: 650px;
-        line-height: 1.6;
-        font-size: 18px;
-        font-family: "Courier New", Courier, monospace;
-        color: #444;
-        padding: 0 10px;
-      }
-      h2 {
-        line-height: 1.2;
-      }
-    </style>
-  </head>
 
-  <script src="https://player.live-video.net/1.3.1/amazon-ivs-player.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id"
+    content="101639677146-ndqra1hbijdooqpo1d1r9mu5ca3l5giv.apps.googleusercontent.com">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 40px auto;
+      max-width: 650px;
+      line-height: 1.6;
+      font-size: 18px;
+      font-family: "Courier New", Courier, monospace;
+      color: #444;
+      padding: 0 10px;
+    }
+
+    h2 {
+      line-height: 1.2;
+    }
+  </style>
+</head>
+
+<!-- <script src="https://player.live-video.net/1.3.1/amazon-ivs-player.min.js"></script>
 <video id="video-player" playsinline></video>
 <script>
   if (IVSPlayer.isPlayerSupported) {
@@ -29,5 +34,17 @@
     player.load("https://cf93ce24ad8a.us-east-1.playback.live-video.net/api/video/v1/us-east-1.506434734451.channel.tO3qLqeGKtSi.m3u8");
     player.play();
   }
-</script>
+</script> -->
+
+<body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    socket.on('timer', (value) => {
+      document.body.innerHTML = "<h2>Timer : " + value + "</h2>"
+    })
+    
+  </script>
+</body>
+
 </html>

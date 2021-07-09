@@ -15,11 +15,62 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IndexController = void 0;
 const response_handler_1 = require("../helpers/response_handler");
 const fs_1 = __importDefault(require("fs"));
+const twitterSignIn = require('twittersignin')({
+    consumerKey: 'SeefROMzgEPNOyNqWGwQKYW1D',
+    consumerSecret: 'IRELRERDqzg5dGrZwZAJWKotjZvbgYZL9cWsn236GFSMzRK7Nq',
+    accessToken: '883265045211234305-fdC1VRfzsfuMcHuk5MCJIuV9YrpweOD',
+    accessTokenSecret: 'LutiIAaW9Pb2ia9FHWGvRtWtQjmQP1wtSFLD5vZKJ45ZG',
+});
+let arr = [];
 class IndexController {
     home(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html");
+            const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
+            // const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html")
             res.sendFile(path);
+        });
+    }
+    login(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/login.html");
+            // const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html")
+            res.sendFile(path);
+        });
+    }
+    verifyToken(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const token = req.body.token;
+            console.log(token);
+        });
+    }
+    handleFBLogin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const token = req.body.token;
+            console.log(token);
+        });
+    }
+    handleTWLogin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield twitterSignIn.getRequestToken();
+            const requestToken = response.oauth_token;
+            const requestTokenSecret = response.oauth_token_secret;
+            const callbackConfirmed = response.oauth_callback_confirmed;
+            arr.push(requestTokenSecret);
+            res.redirect(302, `https://api.twitter.com/oauth/authorize?oauth_token=${requestToken}`);
+        });
+    }
+    twitterCallback(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Get the oauth_verifier query parameter
+            const oauthVerifier = req.query.oauth_verifier;
+            // Get the oauth_token query parameter. 
+            // It's the same as the request token from step 1
+            const requestToken = req.query.oauth_token;
+            // Get the request token secret from whjere we stored it (Step 1)
+            const requestTokenSecret = arr[0];
+            const response = yield twitterSignIn.getAccessToken(requestToken, requestTokenSecret, oauthVerifier);
+            console.log(response);
+            res.redirect('/');
         });
     }
     streamVideo(req, res) {
