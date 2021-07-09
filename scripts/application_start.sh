@@ -4,7 +4,7 @@
 sudo chmod -R 777 /home/ec2-user/express-typescript-app
 
 #navigate into our working directory where we have all our github files
-cd /home/ec2-user/express-typescript/app
+cd /home/ec2-user/express-typescript-app
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	
@@ -16,4 +16,4 @@ npm install --ignore-scripts
 
 #start our node app in the background
 npm run build
-node dist/src/app.js > app.out.log 2> app.err.log < /dev/null & 
+node .

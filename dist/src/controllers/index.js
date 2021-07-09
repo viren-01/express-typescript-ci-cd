@@ -25,15 +25,15 @@ let arr = [];
 class IndexController {
     home(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
-            const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html");
+            const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
+            //const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html")
             res.sendFile(path);
         });
     }
     login(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/login.html");
-            const path = ("/home/ec2-user/express-typescript-app/src" + "/login.html");
+            const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/login.html");
+            //const path = ("/home/ec2-user/express-typescript-app/src" + "/login.html")
             res.sendFile(path);
         });
     }

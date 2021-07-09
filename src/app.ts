@@ -30,14 +30,16 @@ try {
 
     const server = http.createServer(app);
     const io = new Server(server);
-
+    let timer = 10;
+    setInterval(() => {
+        timer = timer - 1;
+    }, 1000)
     io.on('connection', (socket) => {
         console.log(`User Connected with ID : ${socket.id}`);
-        let timer = 60;
 
         setInterval(() => {
             if (timer >= 0) {
-                io.emit('timer', timer--);
+                io.emit('timer', timer);
             }
         }, 1000)
 
