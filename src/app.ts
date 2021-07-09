@@ -33,7 +33,7 @@ try {
 
     io.on('connection', (socket) => {
         console.log(`User Connected with ID : ${socket.id}`);
-        let timer = 10;
+        let timer = 60;
 
         setInterval(() => {
             if (timer >= 0) {
