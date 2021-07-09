@@ -27,7 +27,7 @@ try {
     app.use('/docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
     const server = http_1.default.createServer(app);
     const io = new socket_io_1.Server(server);
-    let timer = 10;
+    let timer = 11;
     setInterval(() => {
         timer = timer - 1;
     }, 1000);
