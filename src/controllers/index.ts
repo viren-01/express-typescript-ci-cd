@@ -14,13 +14,13 @@ let arr: any = [];
 export class IndexController {
 
     public async home(req: Request, res: Response) {
-        const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
-        //const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html")
+        //const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/index.html");
+        const path = ("/home/ec2-user/express-typescript-app/src" + "/index.html")
         res.sendFile(path);
     }
     public async login(req: Request, res: Response) {
-        const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/login.html");
-        //const path = ("/home/ec2-user/express-typescript-app/src" + "/login.html")
+        //const path = ("D:\\VSCODEFILES\\express-typescript-ci-cd\\src" + "/login.html");
+        const path = ("/home/ec2-user/express-typescript-app/src" + "/login.html")
         res.sendFile(path);
     }
 

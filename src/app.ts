@@ -30,7 +30,7 @@ try {
 
     const server = http.createServer(app);
     const io = new Server(server);
-    let timer = 11;
+    let timer = 10;
     setInterval(() => {
         timer = timer - 1;
     }, 1000)
