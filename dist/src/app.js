@@ -29,7 +29,7 @@ try {
     const io = new socket_io_1.Server(server);
     io.on('connection', (socket) => {
         console.log(`User Connected with ID : ${socket.id}`);
-        let timer = 10;
+        let timer = 60;
         setInterval(() => {
             if (timer >= 0) {
                 io.emit('timer', timer--);
