@@ -16,4 +16,4 @@ npm install --ignore-scripts
 
 #start our node app in the background
 npm run build
-node .
+node . > /dev/null 2> /dev/null < /dev/null &
